@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    ObjectPooler instance;
 
+    public Transform spawnerPos;
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Rigidbody rb = ObjectPooler.instance.Spawn("ghost", spawnerPos.transform.position).GetComponent<Rigidbody>();
+        }
     }
 }
